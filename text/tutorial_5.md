@@ -143,7 +143,7 @@ func load<T: Decodable>(_ filename: String) -> T {
     } catch{
         fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
     }
-    //
+    //Jsonを任意の形(T)でデコードして、その価をリターンする
     do{
         let decoder = JSONDecoder()
         return try decoder.decode(T.self, from: data)
@@ -158,6 +158,14 @@ func load<T: Decodable>(_ filename: String) -> T {
 ・`(_ fileName: String)`:　`_`はデコードするオブジェクトの型を推論する、 `fileName`はデコードしたいファイル名
 
 ・`guard let~`：デコードしたいファイルのURLを取得する。失敗時は`else`ブロックのエラーを出す
+
+### Jsonファイルから価を取得して配列を初期化する
+
+例
+
+```swift
+var landmarks: [Landmark] = load("landmarkData.json")
+```
 
 
 
