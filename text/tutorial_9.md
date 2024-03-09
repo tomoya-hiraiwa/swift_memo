@@ -131,7 +131,7 @@ truct MapView: View {
 
 例
 
-```
+```swift
 struct LandmarkDetail: View {
     var landmark: Landmark
     var body: some View {
